@@ -1,23 +1,24 @@
 # Advanced Git
 
-## comparing differences
+## Comparing Differences
+
 When working with Git, you often need to compare changes between:
 
-* Working directory vs staging area
+- Working directory vs staging area
 
-* Staging area vs last commit
+- Staging area vs last commit
 
-* Two commits
+- Two commits
 
-* Two branches
+- Two branches
 
-* A file across history
+- A file across history
 
 ### 1. Compare Working Directory ↔ Staging Area
+
 Shows what you changed but haven’t staged yet.
 
     git diff
-
 
 Use case:
 
@@ -31,11 +32,9 @@ Shows what you have staged to commit.
 
     git diff --staged
 
-
 or
 
     git diff --cached
-
 
 Use case:
 
@@ -50,9 +49,31 @@ Use case:
 Full diff of everything you changed since the last commit.
 
 ### 4. Compare Two Commits
-    git diff <commit1> <commit2>
 
+    git diff <commit1> <commit2>
 
 Example:
 
     git diff a12f3b7 9e2c1da
+
+### 5. Compare Current Branch With Remote Branch
+
+    git diff origin/main
+
+## git difftool
+
+git difftool is an alternative to git diff that lets you compare file changes using a GUI diff tool
+
+(like VSCode, Meld, Beyond Compare, etc.).
+
+same commands for difftool as diff
+
+anything that can pass to diff can be passed to difftool
+
+example: -
+
+    git difftool <commit1> <commit2>
+    git difftool origin/main
+
+
+## Branching

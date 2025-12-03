@@ -98,6 +98,14 @@ git add moves changes from the Working **Directory → Staging Area**.
 
     git add -A
 
+### Get list of files tracking by git
+
+
+    git ls-files //for tracked files
+
+    git ls-files -s //for staged files
+
+    git ls-files -m //for modified files
 ### 3. git commit
 
 git commit permanently saves the staged changes into the repository as a snapshot in time.
