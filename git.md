@@ -86,11 +86,15 @@ git add moves changes from the Working **Directory → Staging Area**.
 
     git add .
 
+**stage a particular file**
+
+    git add newfile.txt
+
 **Stage only modified + deleted, not untracked**
 
     git add -u
 
-**Stage all tracked files (modified + deleted)**
+**Stage all tracked files (modified + deleted), new untracked files**
 
     git add -A
 
@@ -121,6 +125,10 @@ Commit Skipping Staging (commit all tracked changes)
 - -a only works for tracked files
 
 - It does not add untracked files
+
+Open the editor (default commit style)
+
+    git commit
 
 ### 4. git log
 
@@ -191,4 +199,160 @@ index 1234567..8910111 100644
 -    return oldData;
 +    return newData;
  }
+```
+
+## Backing out changes basics
+
+### 1. BACK OUT UNCOMMITTED CHANGES (Working Directory)
+
+These are edits you made but haven’t staged yet.
+Discard changes in a single file
+
+    git restore <file>
+    git checkout -- <file> // old syntax
+    git restore .          // Discard ALL uncommitted changes
+
+### 2. BACK OUT STAGED CHANGES (Staging Area)
+
+You ran git add, but NOT committed yet.
+
+    git reset HEAD <filename>
+
+**Unstage a file (keep changes in working directory)**
+
+    git restore --staged <file>
+
+**Unstage EVERYTHING**
+
+    git restore --staged .
+
+or backout after commit using git reset in later section
+
+# Git alias
+
+A Git alias is a shortcut command that you create to save time and avoid typing long or repetitive Git commands.
+
+## WHERE ALIASES ARE STORED
+
+Git aliases are stored inside your:
+
+    ~/.gitconfig
+
+Or inside a project’s local:
+
+    .git/config
+
+Global is recommended.
+
+syntax: -
+
+    git config --global alias.<shortcut> "<original command>"
+
+## Access the alias config list
+
+list all the config aliases
+
+    git config --global --list
+
+## Remove the alias
+
+    git config --global --unset alias.<name>
+
+## MOST USEFUL REAL-WORLD ALIASES
+
+#### 1. Log (Pretty, one-line)
+
+        git config --global alias.lg "log --oneline --graph --decorate --all"
+
+#### 2. Add All
+
+        git config --global alias.a "add -A"
+
+#### 3. Commit with message
+
+        git config --global alias.cm "commit -m"
+
+#### 4. Undo last commit (keep changes)
+
+        git config --global alias.uncommit "reset --soft HEAD~1"
+
+## Rename file in git
+
+Rename using Git command (recommended)
+
+    git mv oldname.js newname.js
+
+What happens?
+
+- Git detects rename
+
+- Git stages the rename automatically
+
+- Old file is removed
+
+- New file is added
+
+- Ready for commit
+
+OR
+
+**Rename files manually (OS rename)**
+
+You can rename using File Explorer or VS Code.
+
+Example:
+
+    Rename oldname.js → newname.js manually
+
+Then tell Git:
+
+    git add -A
+    git commit -m "renamed"
+
+## Deletion of file in git
+
+Delete file using Git command (recommended)
+
+    git rm filename.js
+
+What happens?
+
+- Deletes file from working directory
+
+- Stages the deletion
+
+- Ready to commit
+
+same steps as Rename if deleted manually
+
+## .gitignore
+
+.gitignore tells Git:
+
+“Do NOT track these files or folders.”
+
+Anything listed inside .gitignore will:
+
+- stay untracked
+
+- never be staged
+
+- never be committed
+
+```
+.env
+secret.json
+debug.log
+
+// ignore by type of files
+*.log
+*.txt
+*.zip
+*.env
+
+//Ignore by suffix
+*.backup
+
+//. Ignore by prefix
+temp*
 ```
