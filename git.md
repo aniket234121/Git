@@ -1,5 +1,34 @@
-# GIT
 
+### Index
+
+- [GIT](#git)
+  - [Meaning](#meaning)
+  - [Basics Git Commands](#basics-git-commands)
+    - [git init](#1-git-init)
+    - [Git States](#git-states)
+    - [git add](#2-git-add)
+    - [List tracked files (git ls-files)](#get-list-of-files-tracking-by-git)
+    - [git commit](#3-git-commit)
+    - [git log](#4-git-log)
+    - [git show](#5-git-show)
+
+- [Backing Out Changes](#backing-out-changes-basics)
+  - [Back out UNCOMMITTED changes](#1-back-out-uncommitted-changes-working-directory)
+  - [Back out STAGED changes](#2-back-out-staged-changes-staging-area)
+
+- [Git Alias](#git-alias)
+  - [Where aliases are stored](#where-aliases-are-stored)
+  - [Access alias config list](#access-the-alias-config-list)
+  - [Remove alias](#remove-the-alias)
+  - [Most useful aliases](#most-useful-real-world-aliases)
+
+- [Rename File in Git](#rename-file-in-git)
+
+- [Delete File in Git](#deletion-of-file-in-git)
+
+- [.gitignore](#gitignore)
+---
+# GIT
 Git is a distributed version control system, which tracks changes in computer files, primarily used for coordinating development work by the programmers during software development process.
 
 #### Meaning:
